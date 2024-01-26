@@ -72,6 +72,7 @@ def shoot(player, character):
         print(f"The shotgun was aimed at {character} by {player} but nothing happened\n")
         bullets.pop(0)
     
+    checkBullets()
     checkLives()
 
 bulletRandomiser()
@@ -88,7 +89,6 @@ What will you do?""")
 commandList()
 
 def gameplay():
-    checkBullets()
     global enemyLives
     global playerLives
     global bullets
@@ -112,8 +112,6 @@ def gameplay():
         else:
             print("I am unsure who you want to shoot")
 
-    checkBullets()
-
     if not playerTurn:
         if enemyChoice():
             shoot("enemy", "player")
@@ -121,8 +119,6 @@ def gameplay():
         else:
             shoot("enemy", "enemy")
             playerTurn = True
-
-    checkBullets()
 
 while True:
     gameplay()
